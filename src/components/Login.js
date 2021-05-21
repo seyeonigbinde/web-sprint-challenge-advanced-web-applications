@@ -2,9 +2,9 @@ import axios from "axios";
 import React, {useState } from "react";
 import { useHistory } from 'react-router-dom';
 
-const credentials={
-  username: "Lambda School",
-  password: "i<3Lambd4"
+  const credentials={
+    username: "Lambda School",
+    password: "i<3Lambd4"
 }
 const Login = () => {
   const { push } = useHistory();
@@ -54,7 +54,7 @@ const Login = () => {
         <h2>Login</h2>
 
         <form onSubmit={login}>
-          <label>Username:  </label> 
+          <label>Username:  </label>
           <input
             type="text"
             name="username"

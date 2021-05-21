@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { axiosWithAuth } from '../helpers/axiosWithAuth';
 
+import { axiosWithAuth } from '../helpers/axiosWithAuth';
 
 import Color from './Color';
 import EditMenu from "./EditMenu"
