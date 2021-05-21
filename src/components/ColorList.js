@@ -21,7 +21,7 @@ const ColorList = ({ colors, updateColors }) => {
 
   const saveEdit = e => {
     e.preventDefault();
-    axiosWithAuth().put(`/colors/${updateColors.id}`, colorToEdit)
+    axiosWithAuth().put(`/colors/${colorToEdit.id}`, colorToEdit)
       .then(res=>{
         setColorToEdit(res.data);
       })
