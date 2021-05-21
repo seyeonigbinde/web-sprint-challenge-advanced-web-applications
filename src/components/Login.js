@@ -33,6 +33,9 @@ const Login = () => {
           .catch(err=>{
         console.log(err);
       });
+      // if (userLogin.username === "" || userLogin.password  === "") {
+      //   return "Username or Password not valid"
+      //  }
   };
  
   
@@ -40,10 +43,8 @@ const Login = () => {
     // when you have handled the token, navigate to the BubblePage route
   
   
-  const error = ""
-  // (userLogin.username || userLogin.password = ""){
-  //     return "Username or Password not valid"
-  //     });
+  const error = ((userLogin.username === "") || (userLogin.password === "")) &&  "Username or Password not valid" 
+  
   //replace with error state
 
   return (
@@ -53,22 +54,24 @@ const Login = () => {
         <h2>Login</h2>
 
         <form onSubmit={login}>
-          <label data-testid="username">Username: 
+          <label>Username:  </label> 
           <input
             type="text"
             name="username"
+            data-testid="username"
             value={userLogin.username}
             onChange={handleChange}
           />
-          </label> 
-          <label data-testid="password">Password: 
+         
+          <label>Password: </label>
           <input
             type="password"
             name="password"
+            data-testid="password"
             value={userLogin.password}
             onChange={handleChange}
           />
-          </label>
+          
           <button>Login</button>
         </form>
 
