@@ -26,19 +26,17 @@ const ColorList = ({ colors, updateColors }) => {
     axios.put(`http://localhost:5000/api/colors/${id}`, initialColor)
     .then(res=>{
       setColorToEdit(res.data);
-      console.log(res.data)
-      // push(`/movies/${id}`);
     })
     .catch(err=>{
       console.log(err);
-    })
+    }, [id])
   };
 
   const deleteColor = color => {
     axios.delete(`http://localhost:5000/api/colors/${id}`)
     .then(res=> {
       setColorToEdit(res.data);
-      // push('/movies');
+     
     })
     .catch(err=>{
       console.log(err);

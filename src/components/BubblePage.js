@@ -6,7 +6,7 @@ import Bubbles from "./Bubbles";
 import ColorList from "./ColorList";
 
 
-const BubblePage = (props) => {
+const BubblePage = () => {
 
   const [colorList, setColorList] = useState([]);
 
@@ -16,7 +16,7 @@ const BubblePage = (props) => {
         .then(res => {
           setColorList(res.data);
         })
-        .catch(error => console.log(error));
+        .catch(err => console.log(err));
     };
     getColor();
   });

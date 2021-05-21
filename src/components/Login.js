@@ -28,7 +28,6 @@ const Login = () => {
       axios.post('http://localhost:5000/api/login', userLogin)
         .then(res=>{
         localStorage.setItem("token", res.data.payload);
-        console.log(res.data.payload)
           push('/bubblePage');
         })
           .catch(err=>{
@@ -41,7 +40,10 @@ const Login = () => {
     // when you have handled the token, navigate to the BubblePage route
   
   
-  const error = "";
+  const error = ""
+  // (userLogin.username || userLogin.password = ""){
+  //     return "Username and Password required"
+  //     });
   //replace with error state
 
   return (
