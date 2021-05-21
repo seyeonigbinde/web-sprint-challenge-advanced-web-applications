@@ -14,33 +14,30 @@ const ColorList = ({ colors, updateColors }) => {
   const [editing, setEditing] = useState(false);
   const [colorToEdit, setColorToEdit] = useState(initialColor);
 
-  const { id } = useParams();
-
   const editColor = color => {
-    setEditing(true);
-    setColorToEdit(color);
+      setEditing(true);
+      setColorToEdit(color);
   };
 
   const saveEdit = e => {
     e.preventDefault();
-    axios.put(`http://localhost:5000/api/colors/${id}`, initialColor)
-    .then(res=>{
-      setColorToEdit(res.data);
-    })
-    .catch(err=>{
-      console.log(err);
-    }, [id])
+    axios.put("http://localhost:5000/api/colors/", colorToEdit)
+      .then(res=>{
+        updateColors.setColorToEdit(res.data);
+      })
+      .catch(err=>{
+        console.log(err);
+      })
   };
 
   const deleteColor = color => {
-    axios.delete(`http://localhost:5000/api/colors/${id}`)
-    .then(res=> {
-      setColorToEdit(res.data);
-     
-    })
-    .catch(err=>{
-      console.log(err);
-    })
+    axios.delete(`http://localhost:5000/api/colors/${colorToEdit.id}`)
+      .then(res=> {
+        setColorToEdit(res.data);
+      })
+      .catch(err=>{
+        console.log(err);
+      })
   };
 
   return (

@@ -11,10 +11,11 @@ test("Fetches data and renders the bubbles on mounting", () => {
   // Finish this test
   render (<BubblePage/>);
 
-  const bubble = screen.queryByTestId("container")
+  const bubble = screen.queryByText("bubbles")
+  const colors = screen.queryByText("colors")
 
   expect(bubble).toBeInTheDocument();
-
+  expect(colors).toBeInTheDocument();
 });
 
 //Task List
