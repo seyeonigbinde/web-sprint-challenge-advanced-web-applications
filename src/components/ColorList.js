@@ -26,6 +26,7 @@ const ColorList = ({ colors, updateColors }) => {
     axios.put(`http://localhost:5000/api/colors/${id}`, initialColor)
     .then(res=>{
       setColorToEdit(res.data);
+      console.log(res.data)
       // push(`/movies/${id}`);
     })
     .catch(err=>{

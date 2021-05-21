@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
 
 import PrivateRoute from './components/PrivateRoute';
@@ -14,7 +14,7 @@ function App() {
     axiosWithAuth().post('/logout')
       .then(res=> {
         localStorage.removeItem("token");
-        window.location.href = "/";
+        window.location.href = "/login";
       })
       .catch(err=> {
         console.log(err);
@@ -26,7 +26,7 @@ function App() {
       <div className="App">
         <header>
           Color Picker Sprint Challenge
-          <Link data-testid="logoutButton" href={logout}>logout</Link>
+          <Link data-testid="logoutButton" onClick={logout}>logout</Link>
         </header> 
         <Switch>
           <PrivateRoute path="/bubblePage" component={BubblePage} />
